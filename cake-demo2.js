@@ -56,7 +56,13 @@ window.onload = function()
 	
 	//test
 	//this.that.addFrameListener(function(t, dt){this.stroke = "'" + t/1000%250 + ',' + t/1000%250 + ',' + t/1000%250 + "'"});
-	this.that.addFrameListener(function(t, dt){ if(t / 1000 + this.depth / 3 >= 3 ){this.visible = true;}});
+
+	// working grow and disapear bottom up
+	//this.that.addFrameListener(function(t, dt){ if((t / 1000 + this.depth / 3)%7 >= 3 ){this.visible = true;}else{this.visible = false}});
+
+	// grows and then whole tree disapears at once
+	this.that.addFrameListener(function(t, dt){ if((t / 1000 + this.depth / 3)%7 >= 3 ){this.visible = true;}});
+	this.that.addFrameListener(function(t, dt){ if((t / 1000 ) % 7 >= 6){this.visible = false;}});
 	/*
 	this.that.every(500,function() 
 		{
